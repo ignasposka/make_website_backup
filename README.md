@@ -16,7 +16,7 @@ Let's figure out what actually script does under the hood :wrench:
 * `number_to_delete=$(($(ls /root/websites_backup/$1 | wc -l) - $backups_capacity))` - here we are counting how many backups we should delete to preserve desired number of backups.  
 * `if [ "$number_to_delete" -gt 0 ]; then` - first we are checking if we have what to delete.  
 * `cd /root/websites_backup/$1` - if yes, we moving to backups directory
-`ls -t /root/websites_backup/$1 | tail -n $number_to_delete | xargs -d '\n' rm -r` - sorting backups by modification time in descending order, passing to *tail* for separating oldest ones and using *xargs* utility to pass file names to delete one by one recursively by *rm* command.  
+* `ls -t /root/websites_backup/$1 | tail -n $number_to_delete | xargs -d '\n' rm -r` - sorting backups by modification time in descending order, passing to *tail* for separating oldest ones and using *xargs* utility to pass file names to delete one by one recursively by *rm* command.  
   
 If you find any discrepancies, errors in readme or code, do not hesitate to make pull request or just reach out me with the comments. Your help is highly appreciated. ❤️
 
